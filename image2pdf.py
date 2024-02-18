@@ -44,6 +44,13 @@ def get_args():
         print("[-] Missing arguments. Provide at least 1 argument.")
         exit()
 
+
+def create_pdf_folder():
+    """Create 'pdf' folder if it does not exist."""
+    pdf_folder = os.path.join(os.getcwd(), 'pdf')
+    if not os.path.exists(pdf_folder):
+        os.makedirs(pdf_folder)
+
 def merge_pdf(pdfs):
     """
     Merge PDF files into a single PDF.
@@ -100,6 +107,7 @@ def image_pdf(list_img):
     return pdf_list
 
 if __name__ == '__main__':
+    create_pdf_folder()
     # Display banner
     banner()
     # Merge PDFs
